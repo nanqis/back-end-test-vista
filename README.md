@@ -6,10 +6,8 @@ This project is a backend API developed in **Node.js** and **TypeScript**, desig
 
 ## 📋 Key Technical Choices
 
-* **Docker**: We use a **`docker-compose.yml`** file to orchestrate both the backend and database containers as a single application.
-* **Prisma**: Selected as the ORM for its type safety and developer-friendly schema migrations.
 * **`express-validator`**: Implemented for robust input validation on all API endpoints, ensuring data integrity.
-* **Postman**: We opted for a Postman Collection for API documentation. It's a practical and interactive way for the examiner to test all endpoints and verify functionality without a separate documentation server.
+* **Postman**: We opted for a Postman Collection for API documentation. We choose Postman over Swagger for this task because it allows for faster creation of testable, shareable API documentation without requiring any additional code integration, which is ideal for a practical timed assessment.
 
 ---
 
