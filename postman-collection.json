@@ -1,0 +1,104 @@
+{
+    "info": {
+      "name": "Company Service API",
+      "description": "Backend API for Company and Service management - Technical Test",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Health Check",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/health",
+            "host": ["{{base_url}}"],
+            "path": ["health"]
+          },
+          "description": "Check if the server is running"
+        },
+        "response": []
+      },
+      {
+        "name": "Create Company",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Example Company\",\n  \"registrationNumber\": \"REG123456\"\n}"
+          },
+          "url": {
+            "raw": "{{base_url}}/companies",
+            "host": ["{{base_url}}"],
+            "path": ["companies"]
+          },
+          "description": "Create a new company with name and registration number"
+        },
+        "response": []
+      },
+      {
+        "name": "Get All Companies",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/companies",
+            "host": ["{{base_url}}"],
+            "path": ["companies"]
+          },
+          "description": "Get all companies with their services"
+        },
+        "response": []
+      },
+      {
+        "name": "Create Service",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Web Development\",\n  \"description\": \"Full-stack web development services\",\n  \"price\": 1500.50,\n  \"companyId\": \"clxyzabc123456789\"\n}"
+          },
+          "url": {
+            "raw": "{{base_url}}/services",
+            "host": ["{{base_url}}"],
+            "path": ["services"]
+          },
+          "description": "Create a new service under a company"
+        },
+        "response": []
+      },
+      {
+        "name": "Get Service by ID",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{base_url}}/services/clxyzabc123456789",
+            "host": ["{{base_url}}"],
+            "path": ["services", "clxyzabc123456789"]
+          },
+          "description": "Get service details by ID"
+        },
+        "response": []
+      }
+    ],
+    "variable": [
+      {
+        "key": "base_url",
+        "value": "http://localhost:3000",
+        "description": "Base URL for the API"
+      }
+    ]
+  }

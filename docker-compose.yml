@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword # <-- Use a real password here
+      MYSQL_DATABASE: company_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: backend-app
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      # This overrides the DATABASE_URL to match the new password
+      DATABASE_URL: "mysql://root:mysecretpassword@db:3306/company_db"
+
+volumes:
+  db-data:
